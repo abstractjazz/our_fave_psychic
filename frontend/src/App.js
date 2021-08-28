@@ -73,6 +73,8 @@ const ask = () => {
 
 
 
+
+
 function App() {
   return (
     <div className="App">
@@ -85,6 +87,49 @@ function App() {
   );
 }
 
+// componentDidMount() {
+//   fetch("http://api.open-notify.org/astros.json")
+//     .then((response) => response.json())
+//     .then((data) => {
+//       this.setState({
+//         peopleInSpace: data.people,
+//       });
+//     });
+// }
+
+
 export default App;
 
+
+// state = {
+//   username: "",
+//   password: ""
+// }
+
+// //since the id values are the same as the keys in state, we can write an abstract setState here
+// handleChange = event => {
+//   this.setState({
+//     [event.target.id]: event.target.value
+//   })
+// }
+
+// render() {
+//   return (
+//     <form onSubmit={this.handleSubmit}>
+//       <input type="text" id="username" value={this.state.username} onChange={this.handleChange}/>
+//       <input type="text" id="password" value={this.state.password} onChange={this.handleChange}/>
+//     </form>
+//   )
+// FETCH POST // }
+
+// handleSubmit = (event) => {
+//   event.preventDefault();
+//   fetch("the server URL", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(this.state),
+//   });
+// HANDLER WITH FETCH };
 
