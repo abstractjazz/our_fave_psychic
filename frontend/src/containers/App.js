@@ -1,7 +1,15 @@
+import React, { Component } from 'react';
 import './App.css';
-import {Route, NavLink} from 'react-router-dom'
 import './index.css';
+import {Route, NavLink} from 'react-router-dom'
+import Videos from './Videos'
 
+
+
+// two arrays // in this file 
+// array of video objects (name & URL)
+// array of questions 
+// use form to submit to the backend <---
 
 const watch = () => {
   return(
@@ -17,6 +25,7 @@ const watch = () => {
     </div>
   )
 }
+
 
 const home = () => {
   return(
@@ -72,20 +81,38 @@ const ask = () => {
 }
 
 
-
-
-
-function App() {
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      videos: []
+    }
+  }
+  
+  componentDidMount() {
+     fetch('http://localhost:3000/api/videos')
+    .then(resp => resp.json())
+    .then(videos => this.setState({ videos }))
+  };  
+  render() {
+    console.log(this.state)
   return (
+
     <div className="App">
       <div className="Header">
       <Route exact path="/" component={home}/>
      <Route exact path="/ask" component={ask}/>
      <Route exact path="/watch" component={watch}/>
+     
       </div>
+      <div className="video-box">
+      <Videos videos={this.state.videos}/>
     </div>
-  );
-}
+    </div>
+    
+    );
+  }
+} 
 
 // componentDidMount() {
 //   fetch("http://api.open-notify.org/astros.json")

@@ -30,7 +30,7 @@ end
     private 
 
     def set_video 
-        @video = Video.find_by(id:params[:id])
+        @video = Video.find_by(id: params[:id])
     end 
     
     def video_params
