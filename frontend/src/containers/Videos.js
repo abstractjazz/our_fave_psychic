@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
+import VideoFrame from '../components/VideoFrame';
+import VideoForm from './VideoForm';
 
-
-const Videos =  (props) => {
-return (
+class Videos extends Component {
+ 
+    render() {
+        return(
     <div className ="VideosContainer">
           <h1>VIDEOS</h1>
-          {props.videos.map(video => 
-          <div key={video.id} className="VideoFrame">
-          <h3>{video.name}</h3>
-          <p>{video.url}</p>
-      
-        </div>
-          )}
+          {this.props.videos.map(video => <VideoFrame video=
+          {video} />)}
+          <VideoForm />
     </div>
-)
-      
-      }
+        );
+        }
+    }
+    
+  
         
 export default Videos;
