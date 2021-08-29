@@ -95,7 +95,6 @@ class App extends Component {
     .then(videos => this.setState({ videos }))
   };  
   render() {
-    console.log(this.state)
   return (
 
     <div className="App">
