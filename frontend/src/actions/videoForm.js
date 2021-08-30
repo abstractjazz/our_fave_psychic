@@ -8,4 +8,8 @@ export const updateVideoFormInfo = videoFormInfo => {
 }
 
 
-//async
+export const resetVideoForm = () => {
+    return {
+        type: 'RESET_VIDEO_FORM',
+    }
+}

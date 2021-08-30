@@ -1,5 +1,5 @@
-
-       // Creators
+import { resetVideoForm } from './videoForm';
+     
 const setVideos = videos => {
     return {
         type: 'GET_VIDEOS_SUCCESS',
@@ -14,7 +14,7 @@ const addVideo = video => {
     }
 }
 
-       //Async
+ 
        
    export const getVideos = () => {
        return dispatch => {
@@ -35,7 +35,9 @@ export const createVideo = video => {
             body: JSON.stringify({video: video})
     })
     .then(resp => resp.json())
-    .then(video => dispatch(addVideo(video)))
-    .catch(error=> console.log(error))
+    .then(video => {
+    dispatch(addVideo(video))
+    dispatch(resetVideoForm())
+    })
     }
 }
