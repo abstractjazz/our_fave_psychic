@@ -6,15 +6,18 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 
-const videosReducer = (state = [], action) => {
-    switch(action.type) {
-        case 'GET_VIDEOS_SUCCESS':
-            return action.videos;jj
+import videos from './reducers/videos';
+import videoFormInfo from './reducers/videoFormInfo';
 
-            default:
-                return state;
-    }
-}
+const reducers = combineReducers({
+    videos,
+    videoFormInfo
+});
 
-let video = videosReducer( null, {type: '@@INIT' });
-console.log(video) = []
+const middleware =[thunk];
+
+export default createStore(
+    reducers,
+    window._REDUX_DEVTOOLS_EXTENSION_&& window.__REDUX_DEVTOOLS_EXTENSION__(),
+    applyMiddleware(...middleware),
+);

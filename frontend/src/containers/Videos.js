@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import VideoFrame from '../components/VideoFrame';
 import VideoForm from './VideoForm';
+import { getVideos } from '../actions/videos';
+
 
 class Videos extends Component {
+
+    componentDidMount() {
+        this.props.getVideos()
+        }
  
     render() {
         return(
     <div className ="VideosContainer">
           <h1>VIDEOS</h1>
-          {this.props.videos.map(video => <VideoFrame video=
+          {this.props.videos.map(video => <VideoFrame key={video.id} video=
           {video} />)}
           <VideoForm />
     </div>
@@ -17,5 +24,10 @@ class Videos extends Component {
     }
     
   
-        
-export default Videos;
+const mapStateToProps = (state) => {
+    return ({
+        videos: state.videos
+    })
+}
+
+export default connect(mapStateToProps, { getVideos })(Videos);

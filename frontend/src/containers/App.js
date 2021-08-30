@@ -4,8 +4,6 @@ import './index.css';
 import {Route, NavLink} from 'react-router-dom'
 import Videos from './Videos'
 
-
-
 // two arrays // in this file 
 // array of video objects (name & URL)
 // array of questions 
@@ -89,11 +87,7 @@ class App extends Component {
     }
   }
   
-  componentDidMount() {
-     fetch('http://localhost:3000/api/videos')
-    .then(resp => resp.json())
-    .then(videos => this.setState({ videos }))
-  };  
+ 
   render() {
   return (
 
