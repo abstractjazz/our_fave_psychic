@@ -7,7 +7,7 @@ class VideoForm extends Component {
 
     handleOnChange = event => {
         const {name, value} = event.target;
-        const currentVideoFormInfo = Object.assign({}, this.props.VideoFormInfo, {
+        const currentVideoFormInfo = Object.assign({}, this.props.videoFormInfo, {
             [name] : value
         } )
         this.props.updateVideoFormInfo(currentVideoFormInfo)
@@ -15,6 +15,7 @@ class VideoForm extends Component {
 
     handleOnSubmit = event => {
         event.preventDefault();
+        console.log('submitted!')
         this.props.createVideo(this.props.videoFormInfo)
     }
 
@@ -23,22 +24,32 @@ class VideoForm extends Component {
         return (
 <div>
     <h1>Add to the psychic's Knowledge</h1>
+    <p>Welcome to the psychic web. 
+    Add a piece of timeless wisdom and a link to the last youtube video you watched below. 
+    When other wisdom seekers come with a question for the psychic web, 
+    your offering might help them along.</p>
+
+    <p>You can also ask your own query by clicking the 'ask' link above. The psychic web is always here for you.</p>
+
     <form onSubmit={this.handleOnSubmit}>
-    <label htmlFor="name">Name:</label>
-    <input 
+        <div>
+    <label htmlFor="name">Advice:</label><br/><br/>
+    <textarea 
     type="text"
     onChange={this.handleOnChange}
     name="name"
     value={name}
     />
-    
-    <label htmlFor="YouTube URL">YT URL:</label>
+    </div><br/><br/>
+    <div>
+    <label htmlFor="YouTube URL">YT URL:</label><br/><br/>
     <input 
     type="text"
-    onChange={this.handle}
+    onChange={this.handleOnChange}
     name="url"
     value={url}
     />
+   </div><br/><br/>
 
     
     <button type="submit">Submit</button>

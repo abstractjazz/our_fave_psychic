@@ -1,13 +1,16 @@
-export default (state = {
+ const initialState = {
     name: '',
     url: ''
-}, action) => {
+}
+   
+  export default (state = initialState, action) => {
+   
     switch(action.type) {
         case 'NEW_INFO': 
-        return action.videoFormInfo
+        return action.videoFormInfo;
 
         case 'RESET_VIDEO_FORM':
-            return state;
+            return initialState;
 
         default:
             return state;

@@ -18,6 +18,7 @@ ReactDOM.render(
     <Router>
     <App store={store} />
     </Router>
+   
     </Provider>
   </React.StrictMode>,
  

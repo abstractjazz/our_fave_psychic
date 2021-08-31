@@ -5,7 +5,7 @@ export default (state = [], action) => {
             return action.videos;
 
             case 'CREATE_VIDEO_SUCCESS':
-            return state.concat(action.surfboard);
+            return state.concat(action.video);
             default:
                 return state;
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import './index.css';
-import {Route, NavLink} from 'react-router-dom'
+import {Switch, Route, NavLink} from 'react-router-dom'
 import Videos from './Videos'
 
 // two arrays // in this file 
@@ -13,13 +13,13 @@ const watch = () => {
   return(
    <div className="watch">
      <NavLink
-     to="/watch"
+     to="/"
      exact
      activeStyle={{
        background: "darkblue",
      }}
       >
-    <h1>watch</h1></NavLink>
+    <h1>home</h1></NavLink>
     </div>
   )
 }
@@ -27,10 +27,11 @@ const watch = () => {
 
 const home = () => {
   return(
+
     <div>
       <NavLink 
       id = "home"
-      to="/"
+      to= "/"
       exact
       activeStyle={{
         color:"pink",
@@ -79,6 +80,27 @@ const ask = () => {
 }
 
 
+
+const videos = () => {
+  return (
+    <div>
+     <NavLink 
+     to="/"
+     exact
+     activeStyle={{
+      background: "darkblue",
+    }}
+    >
+     <h1>cool!</h1></NavLink>
+     
+     <div className="video-box">
+      <Videos videos={videos}/>
+    </div>
+    </div>
+  )
+}
+
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -93,63 +115,20 @@ class App extends Component {
 
     <div className="App">
       <div className="Header">
+        <Switch>
       <Route exact path="/" component={home}/>
      <Route exact path="/ask" component={ask}/>
-     <Route exact path="/watch" component={watch}/>
-     
+    <Route exact path="/watch" component={watch}/>  
+    <Route exact path="/videos" component={videos}/>  
+     </Switch>
       </div>
-      <div className="video-box">
-      <Videos videos={this.state.videos}/>
-    </div>
+  
     </div>
     
     );
   }
 } 
 
-// componentDidMount() {
-//   fetch("http://api.open-notify.org/astros.json")
-//     .then((response) => response.json())
-//     .then((data) => {
-//       this.setState({
-//         peopleInSpace: data.people,
-//       });
-//     });
-// }
-
 
 export default App;
-
-
-// state = {
-//   username: "",
-//   password: ""
-// }
-
-// //since the id values are the same as the keys in state, we can write an abstract setState here
-// handleChange = event => {
-//   this.setState({
-//     [event.target.id]: event.target.value
-//   })
-// }
-
-// render() {
-//   return (
-//     <form onSubmit={this.handleSubmit}>
-//       <input type="text" id="username" value={this.state.username} onChange={this.handleChange}/>
-//       <input type="text" id="password" value={this.state.password} onChange={this.handleChange}/>
-//     </form>
-//   )
-// FETCH POST // }
-
-// handleSubmit = (event) => {
-//   event.preventDefault();
-//   fetch("the server URL", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(this.state),
-//   });
-// HANDLER WITH FETCH };
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import VideoFrame from '../components/VideoFrame';
-import VideoForm from './VideoForm';
+import VideoForm from './videoForm';
 import { getVideos } from '../actions/videos';
 
 
@@ -14,9 +14,8 @@ class Videos extends Component {
     render() {
         return(
     <div className ="VideosContainer">
-          <h1>VIDEOS</h1>
-          {this.props.videos.map(video => <VideoFrame key={video.id} video=
-          {video} />)}
+          {/* {this.props.videos.map(video => <VideoFrame key={video.id} video=
+          {video} />)} */}
           <VideoForm />
     </div>
         );
