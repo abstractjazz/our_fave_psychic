@@ -5,7 +5,6 @@ import './containers/index.css';
 import './containers/App.css';
 import App from './containers/App';
 import reportWebVitals from './reportWebVitals';
-import registerServiceWorker from './registerServiceWorker';
 import store from './store.js';
 import { BrowserRouter as Router} from "react-router-dom";
 
@@ -25,7 +24,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-registerServiceWorker();
+
 
 
 

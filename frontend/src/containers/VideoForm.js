@@ -24,7 +24,7 @@ class VideoForm extends Component {
         return (
 <div>
     <h1>Add to the psychic's Knowledge</h1>
-    <p>Welcome to the psychic web. 
+    <p>Welcome to the web psychic. 
     Add a piece of timeless wisdom and a link to the last youtube video you watched below. 
     When other wisdom seekers come with a question for the psychic web, 
     your offering might help them along.</p>

@@ -29,11 +29,29 @@ a#ask {
 
 }
 
-a#watch {
+a#give{
   position: fixed;
   top: 3vh;
   right: 10vw;
   
+}
+
+h1#h1{
+  position: fixed;
+  top: 15vh;
+  left: 35vw;
+}
+
+p#p {
+  position: fixed;
+  top: 23vh;
+  left: 43vw;
+}
+
+.question {
+  position: fixed;
+  top: 23vh;
+  left: 43vw;
 }
 
 body {

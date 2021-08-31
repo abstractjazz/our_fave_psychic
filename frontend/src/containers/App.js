@@ -3,11 +3,19 @@ import './App.css';
 import './index.css';
 import {Switch, Route, NavLink} from 'react-router-dom'
 import Videos from './Videos'
+import QuestionForm from './QuestionForm';
+import { unmountComponentAtNode } from 'react-dom';
 
-// two arrays // in this file 
-// array of video objects (name & URL)
-// array of questions 
-// use form to submit to the backend <---
+
+const handleClick = () => {
+
+  const frame = document.querySelector('iframe');
+  const p = document.querySelector('p#advice')
+  frame.remove();
+  p.remove();
+
+}
+
 
 const watch = () => {
   return(
@@ -30,25 +38,15 @@ const home = () => {
 
     <div>
       <NavLink 
-      id = "home"
-      to= "/"
+      id="give"
+      to="/give"
       exact
       activeStyle={{
         color:"pink",
       }}
       >
-      <h1>home</h1></NavLink>
-     
-      <NavLink
-      id="watch"
-      to="/watch"
-      exact
-      activeStyle={{
-        color:"pink",
-      }}
-      >
-      <h1>watch</h1></NavLink>
-      
+      <h1>give</h1></NavLink>
+
       <NavLink
       id="ask"
       to="/ask"
@@ -58,23 +56,33 @@ const home = () => {
       }}
       >
       <h1>ask</h1></NavLink>
-
+      <div>
+        <h1 id="h1">Welcome to the Web Psychic</h1>
+        <p id="p">Leave wisdom. Take wisdom.</p>
+      </div>
     </div>
+
+    
+
+   
      
   )
 }
 
 const ask = () => {
   return (
-    <div>
+    <div className="question">
      <NavLink 
+     onClick={handleClick}
+     id="home"
      to="/"
      exact
      activeStyle={{
       background: "darkblue",
     }}
     >
-     <h1>cool!</h1></NavLink>
+     <h1>home</h1></NavLink>
+     < QuestionForm />
     </div>
   )
 }
@@ -91,7 +99,7 @@ const videos = () => {
       background: "darkblue",
     }}
     >
-     <h1>cool!</h1></NavLink>
+     <h1>home</h1></NavLink>
      
      <div className="video-box">
       <Videos videos={videos}/>
@@ -115,12 +123,11 @@ class App extends Component {
 
     <div className="App">
       <div className="Header">
-        <Switch>
+  <Switch>
       <Route exact path="/" component={home}/>
-     <Route exact path="/ask" component={ask}/>
-    <Route exact path="/watch" component={watch}/>  
-    <Route exact path="/videos" component={videos}/>  
-     </Switch>
+      <Route exact path="/ask" component={ask}/>
+      <Route exact path="/give" component={videos}/>  
+  </Switch>
       </div>
   
     </div>
